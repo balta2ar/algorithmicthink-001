@@ -52,8 +52,11 @@ def in_degree_distribution(digraph):
     """How many different indegrees we have in the graph"""
     num_n = len(digraph.keys())
     num_nlarge = num_n * (num_n - 1) / 2
-    distr = {key: 0 for key in xrange(num_nlarge)}
+    distr = {}
     in_degrees = compute_in_degrees(digraph)
     for _, indegree in in_degrees.iteritems():
-        distr[indegree] += 1
+        if indegree in distr:
+            distr[indegree] += 1
+        else:
+            distr[indegree] = 1
     return {key: value for key, value in distr.iteritems() if value > 0}
