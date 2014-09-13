@@ -80,7 +80,8 @@ def load_graph(graph_url):
 
     Returns a dictionary that models a graph
     """
-    graph_file = urllib2.urlopen(graph_url)
+    # graph_file = urllib2.urlopen(graph_url)
+    graph_file = open(graph_url)
     graph_text = graph_file.read()
     graph_lines = graph_text.split('\n')
     graph_lines = graph_lines[ : -1]
