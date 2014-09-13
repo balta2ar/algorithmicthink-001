@@ -4,6 +4,7 @@
     - Graph resilience
 '''
 from collections import deque
+import alg_application2_provided
 
 
 def bfs_visited(ugraph, start_node):
@@ -51,7 +52,6 @@ def largest_cc_size(ugraph):
 def remove_node(ugraph, node):
     '''Remove node from the graph. This also includes removal of the node
     from its neighbors.'''
-    print('removing', node, 'from', ugraph)
     for neighbor in ugraph[node]:
         ugraph[neighbor].remove(node)
     del ugraph[node]
@@ -60,6 +60,7 @@ def remove_node(ugraph, node):
 def compute_resilience(ugraph, attack_order):
     '''Compute graph resilience (size of the largest connected component)
     after removing each of provided nodes.'''
+    ugraph = alg_application2_provided.copy_graph(ugraph)
     resilience = [largest_cc_size(ugraph)]
     for node in attack_order:
         remove_node(ugraph, node)

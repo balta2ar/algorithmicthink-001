@@ -3,10 +3,10 @@ Provided code for Application portion of Module 2
 """
 
 # general imports
-import urllib2
-import random
-import time
-import math
+# import urllib2
+# import random
+# import time
+# import math
 
 # CodeSkulptor import
 #import simpleplot
@@ -29,6 +29,7 @@ def copy_graph(graph):
         new_graph[node] = set(graph[node])
     return new_graph
 
+
 def delete_node(ugraph, node):
     """
     Delete a node from an undirected graph
@@ -37,6 +38,7 @@ def delete_node(ugraph, node):
     ugraph.pop(node)
     for neighbor in neighbors:
         ugraph[neighbor].remove(node)
+
 
 def targeted_order(ugraph):
     """
@@ -66,7 +68,6 @@ def targeted_order(ugraph):
     return order
 
 
-
 ##########################################################
 # Code for loading computer network graph
 
@@ -84,16 +85,16 @@ def load_graph(graph_url):
     graph_file = open(graph_url)
     graph_text = graph_file.read()
     graph_lines = graph_text.split('\n')
-    graph_lines = graph_lines[ : -1]
+    graph_lines = graph_lines[:-1]
 
-    print "Loaded graph with", len(graph_lines), "nodes"
+    print("Loaded graph with %d nodes" % len(graph_lines))
 
     answer_graph = {}
     for line in graph_lines:
         neighbors = line.split(' ')
         node = int(neighbors[0])
         answer_graph[node] = set([])
-        for neighbor in neighbors[1 : -1]:
+        for neighbor in neighbors[1:-1]:
             answer_graph[node].add(int(neighbor))
 
     return answer_graph
