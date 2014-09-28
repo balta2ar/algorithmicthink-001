@@ -11,7 +11,6 @@ to use the matplotlib version of this code
 DESKTOP = True
 
 import math
-import random
 import urllib2
 import alg_cluster
 
@@ -32,11 +31,12 @@ else:
 # URLs for cancer risk data tables of various sizes
 # Numbers indicate number of counties in data table
 
-DIRECTORY = "http://commondatastorage.googleapis.com/codeskulptor-assets/"
-DATA_3108_URL = DIRECTORY + "data_clustering/unifiedCancerData_3108.csv"
-DATA_896_URL = DIRECTORY + "data_clustering/unifiedCancerData_896.csv"
-DATA_290_URL = DIRECTORY + "data_clustering/unifiedCancerData_290.csv"
-DATA_111_URL = DIRECTORY + "data_clustering/unifiedCancerData_111.csv"
+# DIRECTORY = "http://commondatastorage.googleapis.com/codeskulptor-assets/"
+DIRECTORY = "data/"
+DATA_3108_URL = DIRECTORY + "unifiedCancerData_3108.csv"
+DATA_896_URL = DIRECTORY + "unifiedCancerData_896.csv"
+DATA_290_URL = DIRECTORY + "unifiedCancerData_290.csv"
+DATA_111_URL = DIRECTORY + "unifiedCancerData_111.csv"
 
 
 def load_data_table(data_url):
@@ -102,8 +102,8 @@ def run_example():
     cluster_list = sequential_clustering(singleton_list, 15)
     print "Displaying", len(cluster_list), "sequential clusters"
 
-    #cluster_list = alg_project3_solution.hierarchical_clustering(singleton_list, 9)
-    #print "Displaying", len(cluster_list), "hierarchical clusters"
+    cluster_list = alg_project3_solution.hierarchical_clustering(singleton_list, 9)
+    print "Displaying", len(cluster_list), "hierarchical clusters"
 
     #cluster_list = alg_project3_solution.kmeans_clustering(singleton_list, 9, 5)
     #print "Displaying", len(cluster_list), "k-means clusters"
