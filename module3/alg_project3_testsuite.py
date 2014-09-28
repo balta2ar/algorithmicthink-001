@@ -7,7 +7,7 @@ kmeans_clustering(cluster_list, num_clusters, num_iterations)
 Import your solution code below as "student"
 """
 
-import urllib2
+# import urllib2
 
 # Use CodeSkulptor or download these Python files for use on the desktop
 import poc_simpletest      # http://www.codeskulptor.org/#poc_simpletest.py
@@ -19,12 +19,13 @@ import alg_project3_solution as student
 ############################################################
 # Load data tables
 
-DIRECTORY = "http://commondatastorage.googleapis.com/codeskulptor-assets/"
+# DIRECTORY = "http://commondatastorage.googleapis.com/codeskulptor-assets/"
+DIRECTORY = "data/"
 DATA_3108_URL = DIRECTORY + "data_clustering/unifiedCancerData_3108.csv"
 DATA_896_URL = DIRECTORY + "data_clustering/unifiedCancerData_896.csv"
 DATA_290_URL = DIRECTORY + "data_clustering/unifiedCancerData_290.csv"
 DATA_111_URL = DIRECTORY + "data_clustering/unifiedCancerData_111.csv"
-DATA_24_URL = DIRECTORY + "data_clustering/unifiedCancerData_24.csv"
+DATA_24_URL = DIRECTORY + "unifiedCancerData_24.csv"
 
 
 def load_data_table(data_url):
@@ -32,7 +33,8 @@ def load_data_table(data_url):
     Import a table of county-based cancer risk data
     from a csv format file
     """
-    data_file = urllib2.urlopen(data_url)
+    # data_file = urllib2.urlopen(data_url)
+    data_file = open(data_url)
     data = data_file.read()
     data_lines = data.split('\n')
     print "Loaded", len(data_lines), "data points"
