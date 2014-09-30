@@ -3,13 +3,14 @@ Some provided code for plotting the clusters using matplotlib
 """
 
 import math
-import urllib2
+# import urllib2
 import matplotlib.pyplot as plt
 
 
 # URLS for various important datasets
-DIRECTORY = "http://commondatastorage.googleapis.com/codeskulptor-assets/"
-MAP_URL = DIRECTORY + "data_clustering/USA_Counties.png"
+# DIRECTORY = "http://commondatastorage.googleapis.com/codeskulptor-assets/"
+DIRECTORY = "data/"
+MAP_URL = DIRECTORY + "USA_Counties.png"
 
 # Define colors for clusters.  Display a max of 16 clusters.
 COLORS = ['Aqua', 'Yellow', 'Blue', 'Fuchsia', 'Black', 'Green', 'Lime', 'Maroon', 'Navy', 'Olive', 'Orange', 'Purple', 'Red', 'Brown', 'Teal']
@@ -33,7 +34,8 @@ def plot_clusters(data_table, cluster_list, draw_clusters=True):
         fips_to_line[data_table[line_idx][0]] = line_idx
 
     # Load map image
-    map_file = urllib2.urlopen(MAP_URL)
+    # map_file = urllib2.urlopen(MAP_URL)
+    map_file = open(MAP_URL)
     map_img = plt.imread(map_file)
 
     # Scale plot to get size similar to CodeSkulptor version

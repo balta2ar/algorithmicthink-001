@@ -11,7 +11,7 @@ to use the matplotlib version of this code
 DESKTOP = True
 
 import math
-import urllib2
+# import urllib2
 import alg_cluster
 
 # conditional imports
@@ -44,7 +44,8 @@ def load_data_table(data_url):
     Import a table of county-based cancer risk data
     from a csv format file
     """
-    data_file = urllib2.urlopen(data_url)
+    # data_file = urllib2.urlopen(data_url)
+    data_file = open(data_url)
     data = data_file.read()
     data_lines = data.split('\n')
     print "Loaded", len(data_lines), "data points"
@@ -93,14 +94,15 @@ def run_example():
 
     Set DESKTOP = True/False to use either matplotlib or simplegui
     """
-    data_table = load_data_table(DATA_3108_URL)
+    # data_table = load_data_table(DATA_3108_URL)
+    data_table = load_data_table(DATA_896_URL)
 
     singleton_list = []
     for line in data_table:
         singleton_list.append(alg_cluster.Cluster(set([line[0]]), line[1], line[2], line[3], line[4]))
 
-    cluster_list = sequential_clustering(singleton_list, 15)
-    print "Displaying", len(cluster_list), "sequential clusters"
+    # cluster_list = sequential_clustering(singleton_list, 15)
+    # print "Displaying", len(cluster_list), "sequential clusters"
 
     cluster_list = alg_project3_solution.hierarchical_clustering(singleton_list, 9)
     print "Displaying", len(cluster_list), "hierarchical clusters"

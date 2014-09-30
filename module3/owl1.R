@@ -1,0 +1,5 @@
+d <- read.csv('owl1.csv', header=T)
+plot(d$x, d$y)
+with(d, text(x, y, labels=n, pos=4, cex=0.8))
+with(d[28:29,], text(x, y, labels=n, pos=4, cex=0.8, col='red'))
+with(d[48:49,], text(x, y, labels=n, pos=4, cex=0.8, col='blue'))

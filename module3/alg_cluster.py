@@ -78,6 +78,15 @@ class Cluster:
         horiz_dist = self._horiz_center - other_cluster.horiz_center()
         return math.sqrt(vert_dist ** 2 + horiz_dist ** 2)
 
+    @staticmethod
+    def load_as_list(filename):
+        clusters = []
+        with open(filename) as f:
+            for line in f.xreadlines():
+                fips, x, y, pop, risk = line.split(',')
+                clusters.append(Cluster(set([int(fips)]), float(x), float(y), int(pop), float(risk)))
+        return clusters
+
     def merge_clusters(self, other_cluster):
         """
         Merge one cluster into another
