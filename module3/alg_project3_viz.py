@@ -116,4 +116,16 @@ def run_example():
     else:
         alg_clusters_simplegui.PlotClusters(data_table, cluster_list)
 
-run_example()
+
+def visualize(datafile, output, cluster_func):
+    data_table = load_data_table(datafile)
+    clusters = [alg_cluster.Cluster(set([x[0]]), x[1], x[2], x[3], x[4])
+                for x in data_table]
+    clusters = cluster_func(clusters)
+    print "Displaying", len(clusters), "clusters"
+    alg_clusters_matplotlib.plot_clusters(data_table, clusters, True, output)
+    return clusters
+
+
+if __name__ == '__main__':
+    run_example()

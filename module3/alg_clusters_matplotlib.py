@@ -24,7 +24,7 @@ def circle_area(pop):
     return math.pi * pop / (200.0 ** 2)
 
 
-def plot_clusters(data_table, cluster_list, draw_clusters=True):
+def plot_clusters(data_table, cluster_list, draw_clusters=True, output=None):
     """
     Create a plot of clusters of counties
     """
@@ -73,4 +73,7 @@ def plot_clusters(data_table, cluster_list, draw_clusters=True):
             plt.scatter(x = [cluster_center[0]], y = [cluster_center[1]], s =  circle_area(cluster_pop), lw = 1,
                         facecolors = cluster_color, edgecolors = cluster_color)
 
-    plt.show()
+    if output:
+        plt.savefig(output)
+    else:
+        plt.show()

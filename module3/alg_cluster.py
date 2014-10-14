@@ -84,7 +84,7 @@ class Cluster:
         with open(filename) as f:
             for line in f.xreadlines():
                 fips, x, y, pop, risk = line.split(',')
-                clusters.append(Cluster(set([int(fips)]), float(x), float(y), int(pop), float(risk)))
+                clusters.append(Cluster(set([fips]), float(x), float(y), int(pop), float(risk)))
         return clusters
 
     def merge_clusters(self, other_cluster):

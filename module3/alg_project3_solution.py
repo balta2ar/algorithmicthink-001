@@ -141,7 +141,7 @@ def fast_closest_pair(cluster_list):
     return (answer[0], min(answer[1:]), max(answer[1:]))
 
 
-def hierarchical_clustering(cluster_list, num_clusters):
+def hierarchical_clustering(cluster_list, num_clusters, dfunc=None, trigger_set=None):
     """
     Compute a hierarchical clustering of a set of clusters
     Note: the function mutates cluster_list
@@ -154,6 +154,9 @@ def hierarchical_clustering(cluster_list, num_clusters):
         _, idx_i, idx_j = fast_closest_pair(clusters)
         clusters[idx_i].merge_clusters(clusters[idx_j])
         del clusters[idx_j]
+
+        if dfunc is not None and len(clusters) in trigger_set:
+            dfunc(clusters)
     return clusters
 
 
