@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://class.coursera.org/algorithmicthink-001/wiki/grids -->
+<html xmlns:fb="http://ogp.me/ns/fb#" itemtype="http://schema.org" class="supports-svg"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE7"><meta name="fragment" content="!"><meta name="robots" content="NOODP"><meta charset="utf-8"><meta property="og:title" content="Coursera"><meta property="og:type" content="website"><meta property="og:image" content="http://s3.amazonaws.com/coursera/media/Coursera_Computer_Narrow.png"><meta property="og:url" content="https://www.coursera.org/wiki/grids"><meta property="og:site_name" content="Coursera"><meta property="og:locale" content="en_US"><meta property="og:description" content="Take free online classes from 80+ top universities and organizations. Coursera is a social entrepreneurship company partnering with Stanford University, Yale University, Princeton University and others around the world to offer courses online for anyone to take, for free. We believe in connecting people to a great education so that anyone around the world can learn without limits."><meta property="fb:admins" content="727836538,4807654"><meta property="fb:app_id" content="274998519252278"><meta name="twitter:site" content="Coursera"><meta name="twitter:app:name:iphone" content="Coursera"><meta name="twitter:app:name:ipad" content="Coursera"><meta name="twitter:app:name:googleplay" content="Coursera"><meta name="twitter:app:id:iphone" content="id736535961"><meta name="twitter:app:id:ipad" content="id736535961"><meta name="twitter:app:id:googleplay" content="org.coursera.android"><meta name="description" content="Take free online classes from 80+ top universities and organizations. Coursera is a social entrepreneurship company partnering with Stanford University, Yale University, Princeton University and others around the world to offer courses online for anyone to take, for free. We believe in connecting people to a great education so that anyone around the world can learn without limits."><meta name="image" content="http://s3.amazonaws.com/coursera/media/Coursera_Computer_Narrow.png"><meta name="apple-itunes-app" content="app-id=736535961"><title>Wiki - Grid representations | Coursera</title>    <link href="./Wiki - Grid representations   Coursera_files/spark.main.css" rel="stylesheet" type="text/css">
+      <link href="./Wiki - Grid representations   Coursera_files/course.css" rel="stylesheet" type="text/css">
+    <link href="https://spark-public.s3.amazonaws.com/algorithmicthink/static/images/favicon.ico" rel="icon">
+<script type="text/javascript" async="" src="./Wiki - Grid representations   Coursera_files/ga.js"></script><script type="text/javascript" src="./Wiki - Grid representations   Coursera_files/MathJax.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/routes" src="./Wiki - Grid representations   Coursera_files/routes.js"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0 !important; padding: 0 !important; margin: 0 !important; vertical-align: 0 !important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap ! important}
+.MathJax img {display: inline ! important; float: none ! important}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block; overflow: hidden; width: 1px; height: 60ex}
+.MathJax .MathJax_EmBox {display: block; overflow: hidden; width: 1px; height: 60em}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://duqnjvq4jwr55.cloudfront.net/2.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+</style><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Coursera"><meta name="twitter:description" content="Take free online classes from 80+ top universities and organizations. Coursera is a social entrepreneurship company partnering with Stanford University, Yale University, Princeton University and others around the world to offer courses online for anyone to take, for free. We believe in connecting people to a great education so that anyone around the world can learn without limits."><meta name="twitter:image:src" content="http://s3.amazonaws.com/coursera/media/Coursera_Computer_Narrow.png"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/204" src="./Wiki - Grid representations   Coursera_files/204.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/400" src="./Wiki - Grid representations   Coursera_files/400.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/student-page" src="./Wiki - Grid representations   Coursera_files/student-page.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/student-page.html" src="./Wiki - Grid representations   Coursera_files/student-page.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/assessmentTypes/sparkSurveyQuestions/sparkSurveyQuestionsSessionModel" src="./Wiki - Grid representations   Coursera_files/sparkSurveyQuestionsSessionModel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/assessmentTypes/quickQuestions/sessionModel" src="./Wiki - Grid representations   Coursera_files/sessionModel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/assessmentTypes/SessionModel" src="./Wiki - Grid representations   Coursera_files/sessionModel(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/framework/QuestionCollection" src="./Wiki - Grid representations   Coursera_files/QuestionCollection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/framework/QuestionModel" src="./Wiki - Grid representations   Coursera_files/QuestionModel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/nls/student-page" src="./Wiki - Grid representations   Coursera_files/student-page(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bundles/assess/lib/backbone.hascollections" src="./Wiki - Grid representations   Coursera_files/backbone.hascollections.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/underscore.extend" src="./Wiki - Grid representations   Coursera_files/underscore.extend.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/header" src="./Wiki - Grid representations   Coursera_files/header.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/sidebar" src="./Wiki - Grid representations   Coursera_files/sidebar.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/readme" src="./Wiki - Grid representations   Coursera_files/readme.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/header.html" src="./Wiki - Grid representations   Coursera_files/header.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/analytics/models/LearnerStoriesCollection" src="./Wiki - Grid representations   Coursera_files/LearnerStoriesCollection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark-survey/assessApi" src="./Wiki - Grid representations   Coursera_files/assessApi.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/sidebar.html" src="./Wiki - Grid representations   Coursera_files/sidebar.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="spark/app/signature/js/signature_track" src="./Wiki - Grid representations   Coursera_files/signature_track.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/help-center/data/HelpCenterLinks" src="./Wiki - Grid representations   Coursera_files/HelpCenterLinks.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/nls/header" src="./Wiki - Grid representations   Coursera_files/header(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/spark/views/template/nls/sidebar" src="./Wiki - Grid representations   Coursera_files/sidebar(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/vendor/jade" src="./Wiki - Grid representations   Coursera_files/jade.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pages/analytics/models/LearnerStoryModel" src="./Wiki - Grid representations   Coursera_files/LearnerStoryModel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="spark/app/signature/js/signatureTrackLastChanceModal.html" src="./Wiki - Grid representations   Coursera_files/signatureTrackLastChanceModal.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="spark/app/signature/js/flexjoinLastChanceModal.html" src="./Wiki - Grid representations   Coursera_files/flexjoinLastChanceModal.html.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/util" src="./Wiki - Grid representations   Coursera_files/util.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/lib/path" src="./Wiki - Grid representations   Coursera_files/path.js"></script><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head><body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div><div id="fb-root"></div><div id="spark-help" class="hide"></div><a href="http://help.coursera.org/customer/widget/emails/new" target="_blank"><div style="z-index: 1" data-networkprioritysupportwidget="" role="button" class="helpwidget-tab hide">Premium Support</div></a><div id="origami"><div><div><div class="coursera-page"><div role="menubar" class="coursera-header"><div class="hidden">This page features MathJax technology to render mathematical formulae.
+If you are using a screen reader, please visit <a href="http://www.dessci.com/en/products/mathplayer/">MathPlayer</a> to download the plugin for your browser. Please note that this is an Internet Explorer-only plugin at this time.</div><h1 class="hidden">Algorithmic Thinking</h1><!-- UNTIL dashboard announcement expires 2014-08-31 (then delete this code)--><div role="banner" class="course-topbar container-fluid"><div class="row-fluid"><div class="span3"><a href="https://www.coursera.org/" data-if-linkable="add-referrer" class="course-topbar-logo"></a></div><div style="float:right;" class="course-topbar-nav-container span9"><h2 class="hidden">Top Navigation Bar</h2><ul class="course-topbar-nav-list"><li class="course-topbar-nav-list-item"><a href="https://www.coursera.org/courses" data-if-linkable="add-referrer">Courses</a></li><li tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-owns="course-topbar-my" data-popup="#course-topbar-my" data-popup-bind-open="mouseenter" data-popup-close="data-popup-close" style="cursor:pointer;" data-popup-direction="se" class="course-topbar-nav-list-item"><a data-user-id="4958">Yuri Bochkarev<i class="icon-caret-down"></i></a></li></ul></div></div><div id="course-topbar-aboutus" class="course-topbar-sublist"><a href="https://www.coursera.org//about/" target="_new" data-if-linkable="add-referrer" class="internal-about course-topbar-sublist-item">About Us</a><a href="https://www.coursera.org//about/careers" target="_new" data-if-linkable="add-referrer" class="internal-about course-topbar-sublist-item">Careers</a><a href="https://www.coursera.org//about/people" target="_new" data-if-linkable="add-referrer" class="internal-about course-topbar-sublist-item">People</a><a href="https://www.coursera.org//about/contact" target="_new" data-if-linkable="add-referrer" class="internal-about course-topbar-sublist-item">Contact Us</a></div><div id="course-topbar-my" class="course-topbar-sublist"><a data-popup-close="data-popup-close" href="https://www.coursera.org/" target="_new" class="course-topbar-sublist-item">My Courses</a><a data-popup-close="data-popup-close" href="https://www.coursera.org/account/profile" target="_new" class="course-topbar-sublist-item">Profile</a><a data-popup-close="data-popup-close" href="https://www.coursera.org/account/records" target="_new" class="course-topbar-sublist-item">Course Records</a><a href="https://www.coursera.org/account/settings" target="_new" class="course-topbar-sublist-item">Settings</a><a href="https://class.coursera.org/algorithmicthink-001/class/preferences" class="course-topbar-sublist-item">Course Preferences</a><a href="https://class.coursera.org/algorithmicthink-001/auth/logout" class="course-topbar-sublist-item">Sign Out</a></div></div><div class="course-topbanner-wrapper"><div class="course-topbanner"><div class="course-topbanner-university-logo"><a href="https://www.coursera.org/rice" target="_blank" data-if-linkable="add-referrer" title="https://www.coursera.org/rice" class="coursera-university-color"><img src="./Wiki - Grid representations   Coursera_files/university_logo" alt="rice"></a></div><h1 class="course-topbanner-header"><a href="https://class.coursera.org/algorithmicthink-001/" data-if-linkable="modal-lock" class="course-topbanner-name coursera-university-color">Algorithmic Thinking</a><br><span style="" class="course-topbanner-instructor">by Luay Nakhleh, Scott Rixner, Joe Warren</span></h1></div></div></div><div style="position:relative;" class="container-fluid"><div class="row-fluid"><div id="course-page-sidebar" role="navigation"><div role="menubar" class="coursera-sidebar"><div id="course-page-sidebar" role="navigation"><div class="course-navbar-container"><a href="https://class.coursera.org/algorithmicthink-001" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_index"><img src="./Wiki - Grid representations   Coursera_files/logo" style="width: 205px;height: 116px;margin: -15px 0px 8px 1px; box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);" alt="Course Home Page"></a><div data-coursera-course-search-nav-widget="data-coursera-course-search-nav-widget" class="input-append course-search-nav-box"><form method="get" action="https://class.coursera.org/algorithmicthink-001/class/search" data-js-search-form="data-js-search-form" class="form-inline minimized-search"><label for="course-search-nav-input" class="accessible-text-for-reader">Search this course</label><input id="course-search-nav-input" type="text" name="q" data-js-search-input="data-js-search-input">&nbsp;<button type="submit" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="search" class="btn icon-search"><span class="accessible-text-for-reader">Search</span></button></form></div><h2 class="hidden">Side Navigation Bar</h2><ul class="course-navbar-list"><li class="course-navbar-item in-class-qqs-tab"><a href="https://class.coursera.org/algorithmicthink-001/questions" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_" class="coursera-university-color"><span>Quick Questions</span><span></span><span class="in-class-qqs-number-display">15</span></a><div class="in-class-qqs-announcement"><div data-readme="in-class-qqs-announcement-algorithmicthink-001" data-readme-show-count="1" data-readme-show-until-closed="data-readme-show-until-closed" data-readme-type="custom" class="readme"><div class="arrow-left"></div><div class="readme-content"><span>Please help us improve this course by answering some quick questions!</span></div><div data-readme-close="data-readme-close" class="readme-close-icon"><span class="icon-remove"></span></div></div></div></li><li class="course-navbar-item in-class-qqs-tab"></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/class/index" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Announcements" class="coursera-university-color"><span>Announcements </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/quiz/index?quiz_type=survey" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Surveys" class="coursera-university-color"><span>Surveys </span><span></span></a></li><li class="course-navbar-item"><h3>Class</h3></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/lecture/index" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Video_lectures" class="coursera-university-color"><span>Video lectures </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/wiki/Class_handouts" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Class_notes" class="coursera-university-color"><span>Class notes </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/wiki/coding_notes" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Coding_notes" class="coursera-university-color"><span>Coding notes </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/forum/index" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Discussion_forums" class="coursera-university-color"><span>Discussion forums </span><span></span></a></li><li class="course-navbar-item"><h3>Assessments</h3></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/wiki/Homeworkoveriew" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Module_overview" class="coursera-university-color"><span>Module overview </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/quiz/index?quiz_type=homework" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Homework" class="coursera-university-color"><span>Homework </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/assignment/index" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Projects" class="coursera-university-color"><span>Projects </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/human_grading/index" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Applications" class="coursera-university-color"><span>Applications </span><span></span></a></li><li class="course-navbar-item"><h3>Information</h3></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/wiki/lablinks" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Further_activities" class="coursera-university-color"><span>Further activities </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/wiki/FAQ" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_FAQ" class="coursera-university-color"><span>FAQ </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/wiki/honor_code" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Honor_code" class="coursera-university-color"><span>Honor code </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/wiki/aboutus" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Course_staff" class="coursera-university-color"><span>Course staff </span><span></span></a></li><li class="course-navbar-item"><a href="https://class.coursera.org/algorithmicthink-001/wiki/syllabus" data-if-linkable="modal-lock,gray,lock-icon" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Syllabus" class="coursera-university-color"><span>Syllabus </span><span></span></a></li></ul><ul style="list-style-type:none;margin-left: 10px;"><li><a href="http://help.coursera.org/" target="_blank" title="Open help articles in new window" class="coursera-university-color"><i class="icon-question-sign"></i>Help Articles</a></li></ul><ul style="list-style-type:none;margin-left: 10px;"></ul></div></div></div></div><div id="course-page-content" role="main"><div id="spark" class="hide" style="display: block;">
+<h2 class="course-page-header">
+    Grid representations    <a class="coursera-reporter-link" title="Click here if you&#39;re experiencing technical problems or found errors in the course materials." target="_blank" href="https://class.coursera.org/algorithmicthink-001/help/pages?url=https%3A%2F%2Fclass.coursera.org%2Falgorithmicthink-001%2Fwiki%2Fgrids">
+      Help
+    </a>
+    <a data-coursera-admin-helpwidget-link="" rel="help" href="https://class.coursera.org/mooc/help/pages/setup" title="Course Page Setup" style="display:none;">Learn more.</a>
+</h2>
+
+Mathematically, a <em>grid</em> is a partition of a 2D region into a disjoint collection of <em>cells</em>.  Typically, these cells are all a single simple shape such as a square, triangle or hexagon.  Several mini-projects, including 2048, Zombie Apocalypse, and the Fifteen puzzle, involve rectangular grids of squares.  Grids are useful in many computational applications because they provide a convenient way to partition a geometric region in a way that can be easily modeled as a 2D data structure.
+<p></p>
+<p>
+<b> Indexing rectangular grids</b>
+</p>
+<p></p>
+<p>
+For now, we focus on rectangular grids that are composed entirely of squares.  Mathematically, such a grid has a height <code>grid_height</code> and a width <code>grid_width</code>, measured in terms of individual squares.  The standard terminology when referring to the size of such a grid is to specify height first, followed by width.  For example, a three-by-four grid is three squares high and four squares wide.
+</p>
+<p></p>
+<p>
+When working with such grids, we will index individual squares in the grid in the same manner that entries in a matrix are indexed, top to bottom then left to right.  In particular, a square is indexed by its row <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-1-Frame" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-1"><span style="display: inline-block; position: relative; width: 6px; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(30.8px 18480px 49.2px -8.6px); top: -46px; left: 0px;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math; font-style: italic;">i</span></span><span style="display: inline-block; width: 0px; height: 46px;"></span></span></span><span style="border-left-width: 0px; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 14.4px; vertical-align: -1.2px;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-1">i</script> and its column <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-2-Frame" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-4"><span style="display: inline-block; position: relative; width: 8px; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(30.8px 18480px 52.8px -9.2px); top: -46px; left: 0px;"><span class="mrow" id="MathJax-Span-5"><span class="mi" id="MathJax-Span-6" style="font-family: MathJax_Math; font-style: italic;">j</span></span><span style="display: inline-block; width: 0px; height: 46px;"></span></span></span><span style="border-left-width: 0px; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 18px; vertical-align: -4.8px;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-2">j</script> in the grid where the row index <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-3-Frame" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-7"><span style="display: inline-block; position: relative; width: 6px; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(30.8px 18480px 49.2px -8.6px); top: -46px; left: 0px;"><span class="mrow" id="MathJax-Span-8"><span class="mi" id="MathJax-Span-9" style="font-family: MathJax_Math; font-style: italic;">i</span></span><span style="display: inline-block; width: 0px; height: 46px;"></span></span></span><span style="border-left-width: 0px; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 14.4px; vertical-align: -1.2px;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-3">i</script> lies in the range <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-4-Frame" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-10"><span style="display: inline-block; position: relative; width: 147px; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(34.2px 18480px 56.8px -8.3px); top: -50px; left: 0px;"><span class="mrow" id="MathJax-Span-11"><span class="mn" id="MathJax-Span-12" style="font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-13" style="font-family: MathJax_Main;">,</span><span class="mn" id="MathJax-Span-14" style="font-family: MathJax_Main; padding-left: 3.1px;">1</span><span class="mo" id="MathJax-Span-15" style="font-family: MathJax_Main;">,</span><span class="mo" id="MathJax-Span-16" style="font-family: MathJax_Main; padding-left: 3.1px;">.</span><span class="mo" id="MathJax-Span-17" style="font-family: MathJax_Main; padding-left: 3.1px;">.</span><span class="mo" id="MathJax-Span-18" style="font-family: MathJax_Main; padding-left: 3.1px;">.</span><span class="mo" id="MathJax-Span-19" style="font-family: MathJax_Main; padding-left: 3.1px;">,</span><span class="mi" id="MathJax-Span-20" style="font-family: MathJax_Math; font-style: italic; padding-left: 3.1px;">h</span><span class="mi" id="MathJax-Span-21" style="font-family: MathJax_Math; font-style: italic;">e</span><span class="mi" id="MathJax-Span-22" style="font-family: MathJax_Math; font-style: italic;">i</span><span class="mi" id="MathJax-Span-23" style="font-family: MathJax_Math; font-style: italic;">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.1px;"></span></span><span class="mi" id="MathJax-Span-24" style="font-family: MathJax_Math; font-style: italic;">h</span><span class="mi" id="MathJax-Span-25" style="font-family: MathJax_Math; font-style: italic;">t</span><span class="mo" id="MathJax-Span-26" style="font-family: MathJax_Main; padding-left: 4.1px;">−</span><span class="mn" id="MathJax-Span-27" style="font-family: MathJax_Main; padding-left: 4.1px;">1</span></span><span style="display: inline-block; width: 0px; height: 50px;"></span></span></span><span style="border-left-width: 0px; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 18.6px; vertical-align: -4.8px;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-4">0, 1, ..., height - 1</script>  and the column index <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-5-Frame" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-28"><span style="display: inline-block; position: relative; width: 8px; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(30.8px 18480px 52.8px -9.2px); top: -46px; left: 0px;"><span class="mrow" id="MathJax-Span-29"><span class="mi" id="MathJax-Span-30" style="font-family: MathJax_Math; font-style: italic;">j</span></span><span style="display: inline-block; width: 0px; height: 46px;"></span></span></span><span style="border-left-width: 0px; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 18px; vertical-align: -4.8px;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-5">j</script> lies in the range <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-6-Frame" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-31"><span style="display: inline-block; position: relative; width: 142px; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(34.2px 18480px 56.6px -8.3px); top: -50px; left: 0px;"><span class="mrow" id="MathJax-Span-32"><span class="mn" id="MathJax-Span-33" style="font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-34" style="font-family: MathJax_Main;">,</span><span class="mn" id="MathJax-Span-35" style="font-family: MathJax_Main; padding-left: 3.1px;">1</span><span class="mo" id="MathJax-Span-36" style="font-family: MathJax_Main;">,</span><span class="mo" id="MathJax-Span-37" style="font-family: MathJax_Main; padding-left: 3.1px;">.</span><span class="mo" id="MathJax-Span-38" style="font-family: MathJax_Main; padding-left: 3.1px;">.</span><span class="mo" id="MathJax-Span-39" style="font-family: MathJax_Main; padding-left: 3.1px;">.</span><span class="mo" id="MathJax-Span-40" style="font-family: MathJax_Main; padding-left: 3.1px;">,</span><span class="mi" id="MathJax-Span-41" style="font-family: MathJax_Math; font-style: italic; padding-left: 3.1px;">w</span><span class="mi" id="MathJax-Span-42" style="font-family: MathJax_Math; font-style: italic;">i</span><span class="mi" id="MathJax-Span-43" style="font-family: MathJax_Math; font-style: italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.1px;"></span></span><span class="mi" id="MathJax-Span-44" style="font-family: MathJax_Math; font-style: italic;">t</span><span class="mi" id="MathJax-Span-45" style="font-family: MathJax_Math; font-style: italic;">h</span><span class="mo" id="MathJax-Span-46" style="font-family: MathJax_Main; padding-left: 4.1px;">−</span><span class="mn" id="MathJax-Span-47" style="font-family: MathJax_Main; padding-left: 4.1px;">1</span></span><span style="display: inline-block; width: 0px; height: 50px;"></span></span></span><span style="border-left-width: 0px; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 18.4px; vertical-align: -4.6px;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-6">0, 1, ..., width - 1</script>.  This <a href="http://www.codeskulptor.org/#poc_indexed_grid.py" target="_blank">program</a> produces a diagram in CodeSkulptor that illustrates this indexing scheme.  
+</p>
+<p></p>
+<p>
+When compared to canvas coordinates, this matrix-based indexing scheme transposes the horizontal and vertical dimensions. For example, note that the coordinates given to <code>draw_polygon</code> in the diagram-plotting program linked above order the column index first and the row index second when generating vertices of each square drawn in the grid.  For now, you don't need to worry about this issue since the GUIs that we provide for each mini-project handle this transposition without any effort on your part.
+</p>
+<p></p>
+<p>
+<b> Modeling rectangular grids in Python</b>
+</p>
+<p></p>
+<p>
+Given a square, we can store the index associated with a square as the tuple <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-48"><span style="display: inline-block; position: relative; width: 75px; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(33.1px 18480px 57.6px -7.3px); top: -50px; left: 0px;"><span class="mrow" id="MathJax-Span-49"><span class="mo" id="MathJax-Span-50" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-51" style="font-family: MathJax_Math; font-style: italic;">r</span><span class="mi" id="MathJax-Span-52" style="font-family: MathJax_Math; font-style: italic;">o</span><span class="mi" id="MathJax-Span-53" style="font-family: MathJax_Math; font-style: italic;">w</span><span class="mo" id="MathJax-Span-54" style="font-family: MathJax_Main;">,</span><span class="mi" id="MathJax-Span-55" style="font-family: MathJax_Math; font-style: italic; padding-left: 3.1px;">c</span><span class="mi" id="MathJax-Span-56" style="font-family: MathJax_Math; font-style: italic;">o</span><span class="mi" id="MathJax-Span-57" style="font-family: MathJax_Math; font-style: italic;">l</span><span class="mo" id="MathJax-Span-58" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 50px;"></span></span></span><span style="border-left-width: 0px; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 20.5px; vertical-align: -5.6px;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-7">(row, col)</script> in Python.   Then, we can represent some relevant property of that square as the entry <code>cells[row][col]</code> in the 2D list <code>cells</code>.  Note the expression <code>cells[row]</code> returns a 1D list corresponding to a row of the grid.  We can initialize this 2D list via the code fragment:
+</p>
+<pre>cells = [ [... for col in range(grid_width)] for row in range(grid_height)]
+</pre>
+Note that if <code>row</code> or <code>col</code> are not used in the expression <code>...</code>, Pylint will warn that these variables are unused.  To avoid this warning, you can rename these variables to <code>dummy_row</code> and <code>dummy_col</code> to alert Pylint that these variables are intentionally unused.  This renaming will suppress the warning.<hr>
+<div>
+    <div style="float:left">
+    	    	    </div>
+    <div style="float:right;text-align:right;font-size:10px;">
+    	Created Fri 26 Sep 2014  2:11 AM MSK<br>
+    	Last Modified Sun  5 Oct 2014  8:31 PM MSK    </div>
+</div>
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  
+  styleSheets: [],
+  styles: {},
+
+  jax: ["input/TeX"],
+  
+  extensions: ["tex2jax.js"],
+
+  preJax: null,
+  postJax: null,
+
+  preRemoveClass: "MathJax_Preview",
+
+  showProcessingMessages: true,
+
+  messageStyle: "none",
+  
+  displayAlign: "center",
+  displayIndent: "0em",
+  
+  delayStartupUntil: "none",
+
+  skipStartupTypeset: false,
+  
+  elements: [],
+  
+  tex2jax: {
+	    inlineMath: [
+	                 ['$$','$$'],      // uncomment this for standard TeX math delimiters
+	                 ['\\(','\\)']
+	                 ],
+
+	                 displayMath: [
+	                 ['\\[','\\]']
+	                 ],
+
+    skipTags: ["script","noscript","style","textarea","pre","code"],
+    ignoreClass: "tex2jax_ignore",
+    processClass: "tex2jax_process",
+    processEscapes: false,
+    processEnvironments: true,
+    preview: "TeX"
+    
+  },
+  
+  mml2jax: {
+    preview: "alttext"
+    
+  },
+  
+  jsMath2jax: {
+    preview: "TeX"
+    
+  },
+
+  TeX: {
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    Macros: {},
+
+    extensions: ["AMSmath.js", "AMSsymbols.js"]
+    
+  },
+
+  //============================================================================
+  //
+  //  These parameters control the MathML inupt jax.
+  //
+  MathML: {
+    //
+    //  This specifies whether to use TeX spacing or MathML spacing when the
+    //  HTML-CSS output jax is used.
+    //
+    useMathMLspacing: false
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the HTML-CSS output jax.
+  //
+  "HTML-CSS": {
+    
+    scale: 100,
+    
+    availableFonts: ["STIX","TeX"],
+    
+    preferredFont: "TeX",
+    
+    webFont: "TeX",
+    
+    imageFont: "TeX",
+    
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif",
+      
+    showMathMenu: true,
+
+    styles: {},
+    
+    tooltip: {
+      delayPost: 600,          // milliseconds delay before tooltip is posted after mouseover
+      delayClear: 600,         // milliseconds delay before tooltip is cleared after mouseout
+      offsetX: 10, offsetY: 5  // pixels to offset tooltip from mouse position
+    }
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the NativeMML output jax.
+  //
+  NativeMML: {
+
+    scale: 100,
+
+    showMathMenu: true,
+    showMathMenuMSIE: true,
+
+    styles: {}
+  },
+  
+  MathMenu: {
+    delay: 400,
+    
+    helpURL: "http://www.mathjax.org/help/user/",
+
+    showRenderer: true,
+    showFontMenu: false,
+    showContext:  false,
+
+    windowSettings: {
+      status: "no", toolbar: "no", locationbar: "no", menubar: "no",
+      directories: "no", personalbar: "no", resizable: "yes", scrollbars: "yes",
+      width: 100, height: 50
+    },
+    
+    styles: {}
+    
+  },
+
+  MMLorHTML: {
+    prefer: {
+      MSIE:    "MML",
+      Firefox: "HTML",
+      Opera:   "HTML",
+      other:   "HTML"
+    }
+  }
+});
+</script>
+</div></div></div></div></div><div class="coursera-footer"></div></div></div></div><!--[if gte IE 8]><script>document.getElementById("coursera-loading-js").style.display = 'block';</script><![endif]-->
+<!--[if lte IE 7]><script>document.getElementById("coursera-loading-nojs").style.display = 'block';
+window._204 = window._204 || [];
+window._gaq = window._gaq || [];
+
+window._gaq.push(
+    ['_setAccount', 'UA-28377374-1'],
+    ['_setDomainName', window.location.hostname],
+    ['_setAllowLinker', true],
+    ['_trackPageview', window.location.pathname]);
+    
+window._204.push(
+  ['client', 'home'],
+  {key:"pageview", value:window.location.pathname});
+  </script><script src="https://dw0ugk4msqulk.cloudfront.net/c15eb558d61325ddfbcb6b991b199b4adcf13f59/js/lib/204.js"></script><script src="https://ssl.google-analytics.com/ga.js"></script><![endif]-->
+<!--[if !IE]> --><script>document.getElementById("coursera-loading-js").style.display = 'block';</script><!-- <![endif]-->
+    <script src="./Wiki - Grid representations   Coursera_files/jquery.js"></script>
+      <script src="./Wiki - Grid representations   Coursera_files/loadOrRefreshMathJax.js"></script>
+      <script src="./Wiki - Grid representations   Coursera_files/textbook_wiki.js"></script>
+  <script src="./Wiki - Grid representations   Coursera_files/require.js"></script><script data-baseurl="https://dw0ugk4msqulk.cloudfront.net/c15eb558d61325ddfbcb6b991b199b4adcf13f59/" data-version="c15eb558d61325ddfbcb6b991b199b4adcf13f59" data-timestamp="1413310738987" data-debug="0" data-locale="en_US" id="_require">if(document.getElementById("coursera-loading-js").style.display == 'block') {
+  (function(el) {
+     require.config({
+       //enforceDefine: true,
+       waitSeconds: 75,
+       baseUrl: el.getAttribute("data-baseurl"),
+       urlArgs: el.getAttribute("data-debug") == "1" ? "v=" + el.getAttribute("data-timestamp") : "",
+       shim: {
+          'underscore': {
+             exports: '_'
+          },
+          'backbone': {
+             deps: ['underscore', 'jquery'],
+             exports: 'Backbone',
+             init: function(_, $) {
+               Backbone.$ = $;
+               return Backbone;
+             }
+          },
+          'pages/hg/thirdparty/js/backbone.marionette': {
+            deps: ["backbone"]
+          },
+          'pages/hg/thirdparty/js/webshims/polyfiller': {
+            deps: ["jquery"]
+          },
+          'pages/hg/thirdparty/js/webshims/extras/mousepress': {
+            deps: ["jquery", "pages/hg/thirdparty/js/webshims/polyfiller"]
+          },
+          'pages/hg/thirdparty/js/jquery.throttle': {
+            deps: ["jquery"]
+          },
+          'js/lib/jquery.linkify': {
+            deps: ["jquery"]
+          },
+          'pages/hg/thirdparty/js/js/bootstrap/alert': {
+            deps: ["jquery", "pages/hg/thirdparty/js/bootstrap/transition"]
+          },
+          'spark/core/js/jquery_ui': {
+            deps: ["jquery"]
+          },
+          'spark/core/js/jquery.history': {
+            deps: ["jquery"]
+          },
+          'js/lib/bootstrap.tooltip': {
+            deps: ["jquery"]
+          },
+          'pages/hg/thirdparty/js/bootstrap/transition': {
+            deps: ["jquery"]
+          },
+          'pages/hg/thirdparty/js/bootstrap/tab': {
+            deps: ["jquery"]
+          },
+          'bundles/videojs/lib/video.4.3.0': {
+            exports: 'vjs'
+          }
+       },
+       paths: {
+          "jquery":                         "pages/spark/jquery",
+          "underscore":                     "js/core/underscore.1.5.2",
+          "backbone":                       "js/core/backbone.1.1.0",
+          "backbone.relational":            "js/lib/backbone.relational.0.8.6",
+          "i18n":                           "js/lib/i18n._t",
+          "css":                            "js/vendor/require.css.v0-1-2",
+          "memoize":                        "js/lib/require.memoize.v0-0-1",
+          "pages/spark/models/user.json":   "empty:",
+          "pages/spark/models/course.json": "empty:",
+          "pages/spark/models/navbar.json": "empty:"
+       },
+       callback: function() {
+                    require(["pages/spark/routes"]);
+                },
+       config: {
+         i18n: {
+           locale: (window.localStorage ? localStorage.getItem('locale') : '') || el.getAttribute('data-locale')
+         }
+       }
+     });
+  })(document.getElementById("_require"));
+}
+</script><script>define("pages/spark/models/user.json", [], function(){
+      return JSON.parse("{\"id\":4958,\"email_address\":\"baltazar.bz@gmail.com\",\"full_name\":\"Yuri Bochkarev\",\"locale\":\"en_US\",\"timezone\":\"Europe\\\/Moscow\",\"access_group_id\":\"4\",\"registration_time\":\"1390372283\",\"last_access_time\":\"1413264366\",\"last_access_ip\":\"188.244.45.99\",\"signature_track_register_time\":\"0\",\"email_announcement\":\"1\",\"email_forum\":\"1\",\"in_signature_track\":\"0\",\"wishes_proctored_exam\":null,\"first_name\":\"Yuri\",\"permissions\":[\"default\",\"allow_site_access\"],\"group\":\"Student\",\"anonymous\":false,\"forum_title\":\"Student\",\"signature_track_state\":1,\"verified_quizzes\":[],\"submitted_quizzes\":[\"261\",\"263\",\"265\",\"267\"],\"scheduled_proctored_exam\":null,\"last_chance_modal\":1,\"flexjoin_last_chance_modal\":null}");
+  });
+define("pages/spark/models/course.json", [], function(){
+      return JSON.parse("{\"id\":972071,\"isPrivate\":false,\"type\":\"public\",\"name\":\"Algorithmic Thinking\",\"instructor\":\"Luay Nakhleh, Scott Rixner, Joe Warren\",\"sessionName\":\"algorithmicthink-001\",\"externalBaseURL\":\"https:\\\/\\\/www.coursera.org\\\/\",\"shortname\":\"algorithmicthink\",\"host\":\"https:\\\/\\\/www.coursera.org\\\/\",\"assetUnversionedLink\":\"https:\\\/\\\/dw0ugk4msqulk.cloudfront.net\\\/\",\"cheggID\":\"\",\"hasLTI\":true,\"badgevilleDomain\":\"\",\"linkable\":false,\"universityShortname\":\"rice\",\"signatureTrackStatus\":{\"signature_track_enabled\":1},\"courseURLs\":{\"log_in_link\":\"https:\\\/\\\/accounts.coursera.org\\\/signin?post_redirect=https%3A%2F%2Faccounts.coursera.org%2Fsignin%3Fuser_action%3Dclass%26course_id%3D972071%26post_redirect%3Dhttps%253A%252F%252Fclass.coursera.org%252Falgorithmicthink-001%252Fauth%252Fauth_redirector%253Ftype%253Dlogin%2526subtype%253Dnormal%2526visiting%253D\",\"sign_up_link\":\"https:\\\/\\\/accounts.coursera.org\\\/signup?enroll_cid=972071&enroll_sn=algorithmicthink&enroll_n=Algorithmic Thinking\",\"view_course_info_link\":\"https:\\\/\\\/www.coursera.org\\\/course\\\/algorithmicthink\",\"sign_up_link_cant_enroll\":\"https:\\\/\\\/accounts.coursera.org\\\/signup?post_redirect=https%3A%2F%2Fwww.coursera.org%2Fcourse%2Falgorithmicthink\"},\"courseBase\":\"https:\\\/\\\/class.coursera.org\\\/algorithmicthink-001\\\/\",\"search\":true,\"hideWiki\":true,\"hideMeetup\":true,\"aceStartRegistrationDate\":\"Thu  1 Jan 1970  3:00 AM MSK\",\"aceEndRegistrationDate\":\"Thu  1 Jan 1970  3:00 AM MSK\",\"aceExamStartDate\":\"Thu  1 Jan 1970  3:00 AM MSK\",\"aceExamEndDate\":\"Thu  1 Jan 1970  3:00 AM MSK\",\"aceExamRules\":\"\",\"aceExamDuration\":\"\",\"aceBeforeExam\":false,\"aceAfterExam\":true,\"aceHours\":null,\"aceCreditType\":\"\",\"acePrice\":null,\"aceExamID\":null,\"aceEligible\":false,\"canRegisterForACE\":false,\"specialization\":{\"numCourse\":3,\"image\":\"https:\\\/\\\/s3.amazonaws.com\\\/coursera\\\/specializations\\\/fundamentalscomputing\\\/logo_small.jpg\",\"id\":9,\"short_name\":\"fundamentalscomputing\",\"name\":\"Fundamentals of Computing\"},\"supportForums\":false,\"textbooks\":\"\",\"inVideoQuizV2\":false,\"in_flexjoin\":0,\"honorCodeExtraText\":\"\",\"honorCodeCustomTitle\":\"\",\"honorCodeCustomButton\":\"\",\"studentAccessDisabled\":0,\"disableQQs\":false}");
+  });
+  define("pages/spark/models/navbar.json", [], function(){
+      return JSON.parse("{\"items\":[{\"name\":\"Announcements\",\"icon\":\"home\",\"link_type\":\"circuit\",\"link_data\":\"class:index\"},{\"name\":\"Surveys\",\"icon\":\"\",\"link_type\":\"circuit\",\"link_data\":\"quiz:index?quiz_type=survey\"},{\"name\":\"Class\",\"icon\":\"\",\"link_type\":\"heading\",\"link_data\":\"\"},{\"name\":\"Video lectures\",\"icon\":\"lecture\",\"link_type\":\"circuit\",\"link_data\":\"lecture:index\"},{\"name\":\"Class notes\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"Class_handouts\"},{\"name\":\"Coding notes\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"coding_notes\"},{\"name\":\"Discussion forums\",\"icon\":\"forum\",\"link_type\":\"circuit\",\"link_data\":\"forum:index\"},{\"name\":\"Assessments\",\"icon\":\"\",\"link_type\":\"heading\",\"link_data\":\"\"},{\"name\":\"Module overview\",\"icon\":\"wiki\",\"link_type\":\"wiki\",\"link_data\":\"Homeworkoveriew\"},{\"name\":\"Homework\",\"icon\":\"\",\"link_type\":\"circuit\",\"link_data\":\"quiz:index?quiz_type=homework\"},{\"name\":\"Projects\",\"icon\":\"\",\"link_type\":\"circuit\",\"link_data\":\"assignment:index\"},{\"name\":\"Applications\",\"icon\":\"\",\"link_type\":\"circuit\",\"link_data\":\"human_grading:index\"},{\"name\":\"Information\",\"icon\":\"\",\"link_type\":\"heading\",\"link_data\":\"\"},{\"name\":\"Further activities\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"lablinks\"},{\"name\":\"FAQ\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"FAQ\"},{\"name\":\"Honor code\",\"icon\":\"\",\"link_type\":\"wiki\",\"link_data\":\"honor_code\"},{\"name\":\"Course staff\",\"icon\":\"wiki\",\"link_type\":\"wiki\",\"link_data\":\"aboutus\"},{\"name\":\"Syllabus\",\"icon\":\"wiki\",\"link_type\":\"wiki\",\"link_data\":\"syllabus\"}]}");
+  });
+</script><script>var coursera_enable_new_help_center = false;
+</script><div class="hide confirm-navigation modal"><div class="modal-header"><h3>Confirm Navigation</h3></div><div class="modal-body"><div class="confirm-navigation-message"></div><div>Are you sure you want to leave this page?</div></div><div class="modal-footer"><button data-modal-close="data-modal-close" class="btn confirm-navigation-stay">Stay on this Page</button><button data-modal-close="data-modal-close" class="btn btn-danger confirm-navigation-leave">Leave this Page</button></div></div><div class="coursera-async-message" style="display: none;"></div><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Main, sans-serif;"></div><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
