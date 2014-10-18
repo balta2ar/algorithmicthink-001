@@ -1,0 +1,5 @@
+http://storage.googleapis.com/codeskulptor-alg/alg_PAM50.txt
+http://storage.googleapis.com/codeskulptor-alg/alg_HumanEyelessProtein.txt
+http://storage.googleapis.com/codeskulptor-alg/alg_FruitflyEyelessProtein.txt
+http://storage.googleapis.com/codeskulptor-alg/alg_ConsensusPAXDomain.txt
+http://storage.googleapis.com/codeskulptor-assets/assets_scrabble_words3.txt
