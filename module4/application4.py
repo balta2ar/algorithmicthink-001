@@ -27,7 +27,8 @@ WORD_LIST_URL = "data/assets_scrabble_words3.txt"
 
 def agreement(xs, ys, scoring, alignment):
     score, x, y = compute_global_alignment(xs, ys, scoring, alignment)
-    return 100. * sum([1. if a == b else 0. for (a, b) in zip(x, y)]) / len(x)
+    similar = [1. for (a, b) in zip(x, ys) if a == b]
+    return 100. * len(similar) / len(x)
 
 
 def rprot(n, alpha):
@@ -35,7 +36,6 @@ def rprot(n, alpha):
 
 
 def compare(n, nh, nf, alpha, cons, scoring, align):
-    #print(xs, ys)
     ag1, ag2 = [], []
 
     for i in range(n):
@@ -58,8 +58,8 @@ def question1():
     print(len(human), len(fly))
 
     scoring = read_scoring_matrix(PAM50_URL)
-    align = compute_alignment_matrix(human, fly, scoring, False)
-    score, xs, ys = compute_local_alignment(human, fly, scoring, align)
+    local_align = compute_alignment_matrix(human, fly, scoring, False)
+    score, xs, ys = compute_local_alignment(human, fly, scoring, local_align)
     print('Question 1')
     print(score)
     print(xs)
@@ -71,25 +71,30 @@ def question1():
     human_nodash = ''.join([x for x in xs if x != '-'])
     fly_nodash = ''.join([x for x in ys if x != '-'])
 
-    hc_agree = agreement(human_nodash, consensus, scoring, align)
-    fc_agree = agreement(fly_nodash, consensus, scoring, align)
+    hc_global_align = compute_alignment_matrix(human_nodash, consensus, scoring, True)
+    fc_global_align = compute_alignment_matrix(fly_nodash, consensus, scoring, True)
+
+    hc_agree = agreement(human_nodash, consensus, scoring, hc_global_align)
+    fc_agree = agreement(fly_nodash, consensus, scoring, fc_global_align)
     print('Human vs Consensus agree = %s%%' % hc_agree)
     print('Fly vs Consensus agree = %s%%' % fc_agree)
 
-    alpha = "ACBEDGFIHKMLNQPSRTWVYXZ"
-    compare(1000,
-            len(human), len(fly), alpha,
-            consensus, scoring, align)
+    # alpha = "ACBEDGFIHKMLNQPSRTWVYXZ"
+    # compare(1000,
+    #         len(human), len(fly), alpha,
+    #         consensus, scoring, local_align)
 
-    print()
+    # print()
 
 
 def generate_null_distribution(seq_x, seq_y, scoring_matrix, num_trials):
     distr = {}
+    raw = []
 
     try:
         with open('distr.json') as f:
-            return loads(f.read())
+            pair = loads(f.read())
+            return pair['distr'], pair['raw']
     except Exception as e:
         print('cant open file', str(e))
 
@@ -102,9 +107,10 @@ def generate_null_distribution(seq_x, seq_y, scoring_matrix, num_trials):
         if score not in distr:
             distr[score] = 0
         distr[score] += 1
+        raw.append(score)
     with open('distr.json', 'w') as f:
-        f.write(dumps(distr))
-    return distr
+        f.write(dumps({'distr': distr, 'raw': raw}))
+    return distr, raw
 
 
 def norm(d):
@@ -120,11 +126,11 @@ def question4(filename):
     human = read_protein(HUMAN_EYELESS_URL)
     fly = read_protein(FRUITFLY_EYELESS_URL)
     scoring = read_scoring_matrix(PAM50_URL)
-    distr = generate_null_distribution(human, fly, scoring, 1000)
+    distr, raw = generate_null_distribution(human, fly, scoring, 1000)
     from pprint import pprint as pp
     distr = str_keys(distr)
-    distr = norm(distr)
     pp(distr)
+    distr = norm(distr)
 
     pairs = list(distr.iteritems())
     pairs = sorted(pairs, key=itemgetter(0))
@@ -139,9 +145,9 @@ def question4(filename):
     plt.savefig(filename)
 
     s_score = 875
-    n = float(len(distr))
-    mean = sum(distr.keys()) / n
-    std = np.sqrt(sum((x - mean) ** 2 for x in distr.keys()) / n)
+    n = 1000
+    mean = sum(raw) / n
+    std = np.sqrt(sum((x - mean) ** 2 for x in raw) / n)
     z_score = (s_score - mean) / std
 
     print('mean = %f' % mean)
@@ -174,8 +180,8 @@ def question7():
 
 def main():
     question1()
-    #question4('pic/question4.png')
-    #question7()
+    question4('pic/question4.png')
+    question7()
 
 
 if __name__ == '__main__':
