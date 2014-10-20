@@ -8,20 +8,12 @@ import math
 import random
 import urllib2
 
-if DESKTOP:
-    import matplotlib.pyplot as plt
-    import solution4 as student
-else:
-    import simpleplot
-    import userXX_XXXXXXX as student
-
-
-# URLs for data files
-PAM50_URL = "http://storage.googleapis.com/codeskulptor-alg/alg_PAM50.txt"
-HUMAN_EYELESS_URL = "http://storage.googleapis.com/codeskulptor-alg/alg_HumanEyelessProtein.txt"
-FRUITFLY_EYELESS_URL = "http://storage.googleapis.com/codeskulptor-alg/alg_FruitflyEyelessProtein.txt"
-CONSENSUS_PAX_URL = "http://storage.googleapis.com/codeskulptor-alg/alg_ConsensusPAXDomain.txt"
-WORD_LIST_URL = "http://storage.googleapis.com/codeskulptor-assets/assets_scrabble_words3.txt"
+# if DESKTOP:
+#     import matplotlib.pyplot as plt
+#     import solution4 as student
+# else:
+#     import simpleplot
+#     import userXX_XXXXXXX as student
 
 
 ###############################################
@@ -38,7 +30,8 @@ def read_scoring_matrix(filename):
     A dictionary of dictionaries mapping X and Y characters to scores
     """
     scoring_dict = {}
-    scoring_file = urllib2.urlopen(filename)
+    # scoring_file = urllib2.urlopen(filename)
+    scoring_file = open(filename)
     ykeys = scoring_file.readline()
     ykeychars = ykeys.split()
     for line in scoring_file.readlines():
@@ -60,7 +53,8 @@ def read_protein(filename):
     Returns:
     A string representing the protein
     """
-    protein_file = urllib2.urlopen(filename)
+    # protein_file = urllib2.urlopen(filename)
+    protein_file = open(filename)
     protein_seq = protein_file.read()
     protein_seq = protein_seq.rstrip()
     return protein_seq
